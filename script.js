@@ -22,6 +22,7 @@ const twoSyllableList = document.getElementById('twoSyllableList');
 const celebration = document.getElementById('celebration');
 
 let draggedCard = null;
+let selectedCard = null;
 let celebrationShown = false;
 let mistakeMade = false;
 let autoResetTimer = null;
@@ -346,7 +347,8 @@ function resetBoard() {
   celebration.innerHTML = '';
   vowelCards.forEach((card) => {
     card.draggable = true;
-    card.classList.remove('dragging');
+    card.classList.remove('dragging', 'selected');
+    card.setAttribute('aria-pressed', 'false');
     card.setAttribute('aria-label', `${card.dataset.name || cardName(card)}. Drag to the matching English sound.`);
     hebrewPool.appendChild(card);
   });
@@ -355,10 +357,34 @@ function resetBoard() {
     zone.classList.remove('correct', 'incorrect', 'drop-over');
   });
 
-  setStatus('Drag a Hebrew vowel onto its matching English sound.');
+  setStatus('Drag a Hebrew vowel, or click it and then click its matching English sound.');
+  selectedCard = null;
+}
+
+function selectCard(card) {
+  if (card.draggable === false) {
+    return;
+  }
+
+  vowelCards.forEach((item) => {
+    item.classList.remove('selected');
+    item.setAttribute('aria-pressed', 'false');
+  });
+
+  selectedCard = card;
+  card.classList.add('selected');
+  card.setAttribute('aria-pressed', 'true');
+  setStatus('Now click an English sound.');
+}
+
+function clearSelection() {
+  selectedCard?.classList.remove('selected');
+  selectedCard?.setAttribute('aria-pressed', 'false');
+  selectedCard = null;
 }
 
 function handleDragStart(event) {
+  clearSelection();
   draggedCard = event.currentTarget;
   draggedCard.classList.add('dragging');
   event.dataTransfer.effectAllowed = 'move';
@@ -371,21 +397,21 @@ function handleDragEnd(event) {
   dropzones.forEach((zone) => zone.classList.remove('drop-over'));
 }
 
-function handleDrop(event) {
-  event.preventDefault();
-  const targetZone = event.currentTarget;
-  if (!draggedCard) {
+function attemptMatch(card, targetZone) {
+  if (!card || card.draggable === false) {
     return;
   }
 
-  if (zoneAccepts(targetZone, draggedCard.dataset.match)) {
+  if (zoneAccepts(targetZone, card.dataset.match)) {
     targetZone.classList.add('correct');
     targetZone.classList.remove('incorrect');
-    targetZone.querySelector('.matched-vowels').appendChild(draggedCard);
-    draggedCard.draggable = false;
-    draggedCard.classList.remove('dragging');
-    draggedCard.dataset.name = cardName(draggedCard);
-    draggedCard.setAttribute('aria-label', `Matched ${draggedCard.dataset.name}`);
+    card.classList.remove('dragging', 'selected');
+    card.setAttribute('aria-pressed', 'false');
+    targetZone.querySelector('.matched-vowels').appendChild(card);
+    card.draggable = false;
+    card.dataset.name = cardName(card);
+    card.setAttribute('aria-label', `Matched ${card.dataset.name}`);
+    selectedCard = null;
     setStatus(`Nice! That vowel matches the ${targetZone.dataset.sound} sound.`);
 
     const remaining = vowelCards.filter((card) => card.draggable !== false).length;
@@ -400,48 +426,37 @@ function handleDrop(event) {
     }
   } else {
     mistakeMade = true;
-    draggedCard.classList.remove('dragging');
+    card.classList.remove('dragging');
     targetZone.classList.remove('correct');
     targetZone.classList.add('incorrect');
     setStatus(`Not quite. Try again.`);
     setTimeout(() => targetZone.classList.remove('incorrect'), 500);
   }
+}
 
+function handleDrop(event) {
+  event.preventDefault();
+  attemptMatch(draggedCard, event.currentTarget);
   draggedCard = null;
 }
 
 vowelCards.forEach((card) => {
   card.addEventListener('dragstart', handleDragStart);
   card.addEventListener('dragend', handleDragEnd);
+  card.addEventListener('click', () => selectCard(card));
   card.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      const match = card.dataset.match;
-      const target = dropzones.find((zone) => zoneAccepts(zone, match));
-      if (target && card.draggable !== false) {
-        target.classList.add('correct');
-        target.querySelector('.matched-vowels').appendChild(card);
-        card.draggable = false;
-        card.dataset.name = cardName(card);
-        card.setAttribute('aria-label', `Matched ${card.dataset.name}`);
-        setStatus(`Matched the ${target.dataset.sound} sound.`);
-
-        const remaining = vowelCards.filter((item) => item.draggable !== false).length;
-        if (remaining === 0) {
-          if (!mistakeMade) {
-            setStatus('You matched all the Hebrew vowels! Great job!');
-            celebrate();
-          } else {
-            setStatus('Round complete. Starting a new round...');
-            autoResetTimer = setTimeout(resetBoard, 1500);
-          }
-        }
-      }
+      selectCard(card);
     }
   });
 });
 
 dropzones.forEach((zone) => {
+  zone.setAttribute('role', 'button');
+  zone.setAttribute('tabindex', '0');
+  zone.setAttribute('aria-label', `${zone.dataset.sound} sound target`);
+
   zone.addEventListener('dragover', (event) => {
     event.preventDefault();
     zone.classList.add('drop-over');
@@ -452,6 +467,13 @@ dropzones.forEach((zone) => {
   });
 
   zone.addEventListener('drop', handleDrop);
+  zone.addEventListener('click', () => attemptMatch(selectedCard, zone));
+  zone.addEventListener('keydown', (event) => {
+    if ((event.key === 'Enter' || event.key === ' ') && selectedCard) {
+      event.preventDefault();
+      attemptMatch(selectedCard, zone);
+    }
+  });
 });
 
 resetButton.addEventListener('click', resetBoard);

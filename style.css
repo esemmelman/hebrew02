@@ -275,6 +275,12 @@ h2 {
   opacity: 0.55;
 }
 
+.vowel-card.selected {
+  color: var(--secondary);
+  outline: 4px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .vowel-card .vowel-symbol {
   width: 78px;
   font-family: "Times New Roman", "Noto Serif Hebrew", serif;

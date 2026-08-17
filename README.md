@@ -1,6 +1,6 @@
 # Hebrew Vowel Match
 
-Current version: **1.8.2**
+Current version: **1.9.0**
 
 A simple drag-and-drop HTML learning game that helps students match Hebrew vowels to their English sound equivalents.
 
