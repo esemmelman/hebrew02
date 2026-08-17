@@ -1,0 +1,449 @@
+:root {
+  --bg: #f6f3ff;
+  --panel: #ffffff;
+  --primary: #3d2c8d;
+  --secondary: #6d5ef3;
+  --accent: #f7b267;
+  --success: #2e8b57;
+  --error: #c44545;
+  --ink: #1e1b2f;
+  --muted: #685f83;
+  --shadow: 0 18px 45px rgba(41, 33, 83, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #f8f7ff 0%, #eef5ff 100%);
+  color: var(--ink);
+}
+
+.app-shell {
+  max-width: 1200px;
+  margin: 0;
+  padding: 32px 20px 40px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.version-label {
+  display: inline-block;
+  margin: 0 auto 0 0;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(109, 94, 243, 0.1);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.reset-button {
+  appearance: none;
+  border: none;
+  background: var(--primary);
+  color: white;
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.reset-button:hover {
+  background: var(--secondary);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.page-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  align-items: start;
+  gap: 28px;
+}
+
+.lesson-menu {
+  position: sticky;
+  top: 24px;
+}
+
+.menu-heading {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lesson-listbox {
+  min-height: 240px;
+  padding: 8px;
+  border: 1px solid rgba(109, 94, 243, 0.2);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 10px 28px rgba(41, 33, 83, 0.1);
+}
+
+.lesson-listbox:focus-visible {
+  outline: 3px solid rgba(247, 178, 103, 0.65);
+  outline-offset: 3px;
+}
+
+.lesson-option {
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lesson-option:hover,
+.lesson-option[aria-selected="true"] {
+  background: var(--primary);
+  color: white;
+}
+
+.content-area {
+  min-width: 0;
+}
+
+.welcome-view {
+  display: grid;
+  min-height: 360px;
+  place-items: center;
+  border: 2px dashed rgba(109, 94, 243, 0.25);
+  border-radius: 24px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.letters-view {
+  min-height: calc(100vh - 120px);
+}
+
+.letter-cloud {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+  align-content: space-evenly;
+  gap: 18px;
+  min-height: calc(100vh - 120px);
+  padding: 24px;
+}
+
+.hebrew-letter {
+  display: grid;
+  min-height: 110px;
+  place-items: center;
+  color: var(--primary);
+  font-family: "Times New Roman", "Noto Serif Hebrew", serif;
+  font-size: clamp(4.5rem, 8vw, 7.5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.words-view {
+  min-height: calc(100vh - 120px);
+}
+
+.word-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  min-height: calc(100vh - 120px);
+  padding: 28px 24px 24px;
+}
+
+.word-line {
+  display: grid;
+  grid-template-columns: 42px repeat(5, minmax(90px, 1fr));
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  direction: rtl;
+}
+
+.letter-vowel-list .word-line {
+  grid-template-columns: 42px repeat(6, minmax(72px, 1fr));
+}
+
+.letter-vowel-list .hebrew-word {
+  font-size: clamp(3.2rem, 5vw, 5.25rem);
+}
+
+.line-number {
+  color: var(--muted);
+  font-size: 1.35rem;
+  font-weight: 800;
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate;
+}
+
+.hebrew-word {
+  color: var(--primary);
+  font-family: "Times New Roman", "Noto Serif Hebrew", serif;
+  font-size: clamp(2.8rem, 4.5vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.65fr) minmax(0, 1.35fr);
+  gap: 42px;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(109, 94, 243, 0.14);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.dropzone-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  gap: 8px;
+}
+
+.vowel-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.vowel-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 66px;
+  padding: 2px 14px;
+  border: 0;
+  background: transparent;
+  cursor: grab;
+  user-select: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.vowel-card:hover,
+.vowel-card:focus-visible {
+  color: var(--secondary);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.vowel-card.dragging {
+  opacity: 0.55;
+}
+
+.vowel-card .vowel-symbol {
+  width: 78px;
+  font-family: "Times New Roman", "Noto Serif Hebrew", serif;
+  font-size: clamp(3.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  text-align: center;
+}
+
+.dropzone .vowel-card {
+  min-height: 66px;
+  padding: 0;
+}
+
+.dropzone .vowel-symbol {
+  width: auto;
+  font-size: clamp(3.5rem, 5vw, 4.5rem);
+}
+
+.dropzone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 78px;
+  padding: 8px 12px;
+  border: 2px dashed rgba(109, 94, 243, 0.45);
+  border-radius: 18px;
+  background: rgba(109, 94, 243, 0.04);
+  text-align: center;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.dropzone.drop-over {
+  background: rgba(109, 94, 243, 0.11);
+  border-color: var(--primary);
+  transform: scale(1.02);
+}
+
+.dropzone.correct {
+  background: rgba(46, 139, 87, 0.12);
+  border-color: var(--success);
+}
+
+.dropzone.incorrect {
+  animation: shake 0.35s ease-in-out;
+  border-color: var(--error);
+}
+
+.dropzone-label {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.pronunciation {
+  font-size: 0.55em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.matched-vowels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  min-height: 66px;
+  margin-top: 0.2rem;
+}
+
+.status-message {
+  margin-top: 22px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  min-height: 1.5em;
+}
+
+.celebration {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.firework {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 8px;
+  height: 8px;
+}
+
+.spark {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: hsl(var(--hue) 95% 58%);
+  box-shadow: 0 0 10px hsl(var(--hue) 95% 65%);
+  animation: burst 1.2s ease-out forwards;
+  animation-delay: var(--delay);
+  opacity: 0;
+}
+
+@keyframes burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(0.15);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  75% {
+    transform: translateX(-6px);
+  }
+}
+
+@media (max-width: 760px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-menu {
+    position: static;
+  }
+
+  .lesson-listbox {
+    min-height: auto;
+  }
+
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .word-line {
+    grid-template-columns: 30px repeat(5, minmax(48px, 1fr));
+    gap: 5px;
+  }
+
+  .letter-vowel-list .word-line {
+    grid-template-columns: 30px repeat(6, minmax(38px, 1fr));
+  }
+
+  .hebrew-word {
+    font-size: clamp(1.8rem, 9vw, 3rem);
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="application-version" content="1.8.2" />
+    <title>Hebrew Vowel Match</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <p class="version-label">Version 1.8.2</p>
+        <button id="resetButton" class="reset-button" type="button" hidden>Reset</button>
+      </header>
+
+      <div class="page-layout">
+        <aside class="lesson-menu" aria-label="Learning activities">
+          <p class="menu-heading">Lessons</p>
+          <div id="lessonList" class="lesson-listbox" role="listbox" aria-label="Choose a lesson" tabindex="0">
+            <div id="vowelsOption" class="lesson-option" role="option" aria-selected="false" data-view="vowels">Vowels</div>
+            <div id="lettersOption" class="lesson-option" role="option" aria-selected="false" data-view="letters">Alphabet</div>
+            <div id="letterVowelOption" class="lesson-option" role="option" aria-selected="false" data-view="letter-vowel">Letter and Vowel</div>
+            <div id="syllableOption" class="lesson-option" role="option" aria-selected="false" data-view="syllable">1 Syllable</div>
+            <div id="twoSyllableOption" class="lesson-option" role="option" aria-selected="false" data-view="two-syllables">2 Syllables</div>
+          </div>
+        </aside>
+
+        <div class="content-area">
+          <section id="welcomeView" class="welcome-view">
+            <p>Select a lesson from the list to begin.</p>
+          </section>
+
+          <section id="vowelsView" class="lesson-view" aria-labelledby="vowelsOption" hidden>
+            <div class="game-grid">
+        <div class="panel">
+          <h2>Hebrew vowels</h2>
+          <div id="hebrewPool" class="vowel-list" aria-label="Hebrew vowels">
+            <div class="vowel-card" draggable="true" data-match="hiriq" tabindex="0" role="button" aria-label="Hiriq. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אִ</span>
+            </div>
+
+            <div class="vowel-card" draggable="true" data-match="tsere" tabindex="0" role="button" aria-label="Tsere. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אֵ</span>
+            </div>
+
+            <div class="vowel-card" draggable="true" data-match="segol" tabindex="0" role="button" aria-label="Segol. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אֶ</span>
+            </div>
+
+            <div class="vowel-card" draggable="true" data-match="patach" tabindex="0" role="button" aria-label="Patach. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אַ</span>
+            </div>
+
+            <div class="vowel-card" draggable="true" data-match="kamatz" tabindex="0" role="button" aria-label="Kamatz. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אָ</span>
+            </div>
+
+            <div class="vowel-card" draggable="true" data-match="shva" tabindex="0" role="button" aria-label="Shva. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אְ</span>
+            </div>
+
+            <div class="vowel-card" draggable="true" data-match="holam" tabindex="0" role="button" aria-label="Holam. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אֹ</span>
+            </div>
+
+            <div class="vowel-card" draggable="true" data-match="holam-maleh" tabindex="0" role="button" aria-label="Holam Maleh. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אוֹ</span>
+            </div>
+
+            <div class="vowel-card" draggable="true" data-match="chataf-patah" tabindex="0" role="button" aria-label="Chataf Patach. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אֲ</span>
+            </div>
+
+            <div class="vowel-card" draggable="true" data-match="chataf-segol" tabindex="0" role="button" aria-label="Chataf Segol. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אֱ</span>
+            </div>
+
+            <div class="vowel-card" draggable="true" data-match="chataf-kamatz" tabindex="0" role="button" aria-label="Chataf Kamatz. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אֳ</span>
+            </div>
+
+            <div class="vowel-card" draggable="true" data-match="kubutz" tabindex="0" role="button" aria-label="Kubutz. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אֻ</span>
+            </div>
+
+            <div class="vowel-card" draggable="true" data-match="shuruk" tabindex="0" role="button" aria-label="Shuruk. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אוּ</span>
+            </div>
+
+            <div class="vowel-card" draggable="true" data-match="ai" tabindex="0" role="button" aria-label="Ai. Drag to the matching English sound.">
+              <span class="vowel-symbol" lang="he" dir="rtl">אַי</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>English equivalents</h2>
+          <div id="englishPool" class="dropzone-grid" aria-label="English equivalent targets">
+            <div class="dropzone" data-accepts="kubutz shuruk"><span class="dropzone-label">oo <span class="pronunciation">(boo)</span></span><div class="matched-vowels"></div></div>
+            <div class="dropzone" data-accepts="patach kamatz chataf-patah chataf-kamatz"><span class="dropzone-label">ah <span class="pronunciation">(saw)</span></span><div class="matched-vowels"></div></div>
+            <div class="dropzone" data-accepts="shva"><span class="dropzone-label">silent</span><div class="matched-vowels"></div></div>
+            <div class="dropzone" data-accepts="ai"><span class="dropzone-label">ai <span class="pronunciation">(tie)</span></span><div class="matched-vowels"></div></div>
+            <div class="dropzone" data-accepts="segol chataf-segol"><span class="dropzone-label">eh <span class="pronunciation">(red)</span></span><div class="matched-vowels"></div></div>
+            <div class="dropzone" data-accepts="holam holam-maleh"><span class="dropzone-label">oh <span class="pronunciation">(toe)</span></span><div class="matched-vowels"></div></div>
+            <div class="dropzone" data-accepts="hiriq"><span class="dropzone-label">ee <span class="pronunciation">(see)</span></span><div class="matched-vowels"></div></div>
+            <div class="dropzone" data-accepts="tsere"><span class="dropzone-label">ay <span class="pronunciation">(say)</span></span><div class="matched-vowels"></div></div>
+          </div>
+        </div>
+            </div>
+
+            <p id="statusMessage" class="status-message" aria-live="polite">Drag a Hebrew vowel onto its matching English sound.</p>
+          </section>
+
+          <section id="lettersView" class="lesson-view letters-view" aria-labelledby="lettersOption" hidden>
+            <div id="letterCloud" class="letter-cloud" lang="he" dir="rtl" aria-label="Hebrew letters"></div>
+          </section>
+
+          <section id="letterVowelView" class="lesson-view words-view" aria-labelledby="letterVowelOption" hidden>
+            <div id="letterVowelList" class="word-list letter-vowel-list" aria-label="Hebrew letters with vowels"></div>
+          </section>
+
+          <section id="syllableView" class="lesson-view words-view" aria-labelledby="syllableOption" hidden>
+            <div id="syllableList" class="word-list" aria-label="One-syllable Hebrew words"></div>
+          </section>
+
+          <section id="twoSyllableView" class="lesson-view words-view" aria-labelledby="twoSyllableOption" hidden>
+            <div id="twoSyllableList" class="word-list" aria-label="Two-syllable Hebrew words"></div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+    <div id="celebration" class="celebration" aria-hidden="true"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
