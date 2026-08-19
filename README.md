@@ -4,7 +4,7 @@ Current version: **1.9.1**
 
 A simple drag-and-drop HTML learning game that helps students match Hebrew vowels to their English sound equivalents.
 
-Website: [https://esemmelman.github.io/hebrew02/](https://esemmelman.github.io/hebrew02/)
+Website: [https://esemmelman.github.io/avery-hebrew/](https://esemmelman.github.io/avery-hebrew/)
 
 ## Included vowels
 
