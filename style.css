@@ -211,6 +211,14 @@ h2 {
   left: 28px;
 }
 
+.three-syllable-list {
+  left: 44px;
+}
+
+.three-syllable-list .word-line {
+  grid-template-columns: 42px repeat(3, minmax(180px, 1fr));
+}
+
 .line-number {
   color: var(--muted);
   font-size: 1.35rem;
@@ -455,6 +463,10 @@ h2 {
 
   .syllable-list {
     left: 0;
+  }
+
+  .three-syllable-list .word-line {
+    grid-template-columns: 30px repeat(3, minmax(80px, 1fr));
   }
 
   .topbar {

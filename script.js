@@ -409,53 +409,43 @@ function openThreeSyllables() {
   const wordLines = [
     [
       { hebrew: 'מִשְׁפָּחָה', english: 'family' }, { hebrew: 'מְכוֹנִית', english: 'car' },
-      { hebrew: 'תַּלְמִידָה', english: 'female student' }, { hebrew: 'עִפָּרוֹן', english: 'pencil' },
-      { hebrew: 'מַחְבֶּרֶת', english: 'notebook' }
+      { hebrew: 'תַּלְמִידָה', english: 'female student' }
     ],
     [
       { hebrew: 'אֲדָמָה', english: 'ground' }, { hebrew: 'עֲבוֹדָה', english: 'work' },
-      { hebrew: 'מַתָּנָה', english: 'gift' }, { hebrew: 'אֲרוּחָה', english: 'meal' },
-      { hebrew: 'חֲבֵרָה', english: 'female friend' }
+      { hebrew: 'מַתָּנָה', english: 'gift' }
     ],
     [
       { hebrew: 'סִפְרִיָּה', english: 'library' }, { hebrew: 'מִסְעָדָה', english: 'restaurant' },
-      { hebrew: 'טֶלֶפוֹן', english: 'telephone' }, { hebrew: 'מְדִינָה', english: 'country' },
-      { hebrew: 'עִירִיָּה', english: 'city hall' }
+      { hebrew: 'טֶלֶפוֹן', english: 'telephone' }
     ],
     [
       { hebrew: 'אֲנָשִׁים', english: 'people' }, { hebrew: 'יְלָדִים', english: 'boys' },
-      { hebrew: 'יְלָדוֹת', english: 'girls' }, { hebrew: 'כַּדּוּרִים', english: 'balls' },
-      { hebrew: 'חֲתוּלִים', english: 'cats' }
+      { hebrew: 'יְלָדוֹת', english: 'girls' }
     ],
     [
       { hebrew: 'צִפּוֹרִים', english: 'birds' }, { hebrew: 'אַרְנָבִים', english: 'rabbits' },
-      { hebrew: 'גְּמַלִּים', english: 'camels' }, { hebrew: 'אִילָנוֹת', english: 'trees' },
-      { hebrew: 'עֲנָנִים', english: 'clouds' }
+      { hebrew: 'גְּמַלִּים', english: 'camels' }
     ],
     [
       { hebrew: 'גְּשָׁמִים', english: 'rains' }, { hebrew: 'כּוֹכָבִים', english: 'stars' },
-      { hebrew: 'יְרֵחִים', english: 'moons' }, { hebrew: 'רְחוֹבוֹת', english: 'streets' },
-      { hebrew: 'חֲנוּיוֹת', english: 'stores' }
+      { hebrew: 'יְרֵחִים', english: 'moons' }
     ],
     [
       { hebrew: 'בִּנְיָנִים', english: 'buildings' }, { hebrew: 'מַעֲלִית', english: 'elevator' },
-      { hebrew: 'מַדְרֵגוֹת', english: 'stairs' }, { hebrew: 'תַּפּוּחִים', english: 'apples' },
-      { hebrew: 'תַּפּוּזִים', english: 'oranges' }
+      { hebrew: 'מַדְרֵגוֹת', english: 'stairs' }
     ],
     [
       { hebrew: 'בָּנָנוֹת', english: 'bananas' }, { hebrew: 'עֻגִּיָּה', english: 'cookie' },
-      { hebrew: 'אֲדֻמָּה', english: 'red' }, { hebrew: 'יְרֻקָּה', english: 'green' },
-      { hebrew: 'כְּחֻלָּה', english: 'blue' }
+      { hebrew: 'אֲדֻמָּה', english: 'red' }
     ],
     [
       { hebrew: 'צְהֻבָּה', english: 'yellow' }, { hebrew: 'לְבָנָה', english: 'white' },
-      { hebrew: 'גְּדוֹלָה', english: 'big' }, { hebrew: 'קְטַנָּה', english: 'small' },
-      { hebrew: 'חֲדָשָׁה', english: 'new' }
+      { hebrew: 'גְּדוֹלָה', english: 'big' }
     ],
     [
       { hebrew: 'יְשָׁנָה', english: 'old' }, { hebrew: 'מְנַהֵל', english: 'manager' },
-      { hebrew: 'מְדַבֵּר', english: 'speaks' }, { hebrew: 'כּוֹתֶבֶת', english: 'writes' },
-      { hebrew: 'לוֹמֶדֶת', english: 'learns' }
+      { hebrew: 'מְדַבֵּר', english: 'speaks' }
     ]
   ];
 
