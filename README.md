@@ -4,6 +4,8 @@ Current version: **1.9.0**
 
 A simple drag-and-drop HTML learning game that helps students match Hebrew vowels to their English sound equivalents.
 
+Website: [https://esemmelman.github.io/hebrew01/](https://esemmelman.github.io/hebrew01/)
+
 ## Included vowels
 
 - Hiriq -> ee
