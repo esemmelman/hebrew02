@@ -19,6 +19,9 @@ const syllableList = document.getElementById('syllableList');
 const twoSyllableOption = document.getElementById('twoSyllableOption');
 const twoSyllableView = document.getElementById('twoSyllableView');
 const twoSyllableList = document.getElementById('twoSyllableList');
+const threeSyllableOption = document.getElementById('threeSyllableOption');
+const threeSyllableView = document.getElementById('threeSyllableView');
+const threeSyllableList = document.getElementById('threeSyllableList');
 const celebration = document.getElementById('celebration');
 
 let draggedCard = null;
@@ -95,11 +98,13 @@ function openVowels() {
   letterVowelOption.setAttribute('aria-selected', 'false');
   syllableOption.setAttribute('aria-selected', 'false');
   twoSyllableOption.setAttribute('aria-selected', 'false');
+  threeSyllableOption.setAttribute('aria-selected', 'false');
   welcomeView.hidden = true;
   lettersView.hidden = true;
   letterVowelView.hidden = true;
   syllableView.hidden = true;
   twoSyllableView.hidden = true;
+  threeSyllableView.hidden = true;
   vowelsView.hidden = false;
   resetButton.hidden = false;
 }
@@ -155,11 +160,13 @@ function openLetters() {
   letterVowelOption.setAttribute('aria-selected', 'false');
   syllableOption.setAttribute('aria-selected', 'false');
   twoSyllableOption.setAttribute('aria-selected', 'false');
+  threeSyllableOption.setAttribute('aria-selected', 'false');
   welcomeView.hidden = true;
   vowelsView.hidden = true;
   letterVowelView.hidden = true;
   syllableView.hidden = true;
   twoSyllableView.hidden = true;
+  threeSyllableView.hidden = true;
   lettersView.hidden = false;
   resetButton.hidden = true;
 }
@@ -203,11 +210,13 @@ function openLetterVowels() {
   lettersOption.setAttribute('aria-selected', 'false');
   syllableOption.setAttribute('aria-selected', 'false');
   twoSyllableOption.setAttribute('aria-selected', 'false');
+  threeSyllableOption.setAttribute('aria-selected', 'false');
   welcomeView.hidden = true;
   vowelsView.hidden = true;
   lettersView.hidden = true;
   syllableView.hidden = true;
   twoSyllableView.hidden = true;
+  threeSyllableView.hidden = true;
   letterVowelView.hidden = false;
   resetButton.hidden = true;
 }
@@ -293,11 +302,13 @@ function openSyllables() {
   lettersOption.setAttribute('aria-selected', 'false');
   letterVowelOption.setAttribute('aria-selected', 'false');
   twoSyllableOption.setAttribute('aria-selected', 'false');
+  threeSyllableOption.setAttribute('aria-selected', 'false');
   welcomeView.hidden = true;
   vowelsView.hidden = true;
   lettersView.hidden = true;
   letterVowelView.hidden = true;
   twoSyllableView.hidden = true;
+  threeSyllableView.hidden = true;
   syllableView.hidden = false;
   resetButton.hidden = true;
 }
@@ -379,6 +390,7 @@ function openTwoSyllables() {
   });
 
   twoSyllableOption.setAttribute('aria-selected', 'true');
+  threeSyllableOption.setAttribute('aria-selected', 'false');
   vowelsOption.setAttribute('aria-selected', 'false');
   lettersOption.setAttribute('aria-selected', 'false');
   letterVowelOption.setAttribute('aria-selected', 'false');
@@ -389,6 +401,99 @@ function openTwoSyllables() {
   letterVowelView.hidden = true;
   syllableView.hidden = true;
   twoSyllableView.hidden = false;
+  threeSyllableView.hidden = true;
+  resetButton.hidden = true;
+}
+
+function openThreeSyllables() {
+  const wordLines = [
+    [
+      { hebrew: 'מִשְׁפָּחָה', english: 'family' }, { hebrew: 'מְכוֹנִית', english: 'car' },
+      { hebrew: 'תַּלְמִידָה', english: 'female student' }, { hebrew: 'עִפָּרוֹן', english: 'pencil' },
+      { hebrew: 'מַחְבֶּרֶת', english: 'notebook' }
+    ],
+    [
+      { hebrew: 'אֲדָמָה', english: 'ground' }, { hebrew: 'עֲבוֹדָה', english: 'work' },
+      { hebrew: 'מַתָּנָה', english: 'gift' }, { hebrew: 'אֲרוּחָה', english: 'meal' },
+      { hebrew: 'חֲבֵרָה', english: 'female friend' }
+    ],
+    [
+      { hebrew: 'סִפְרִיָּה', english: 'library' }, { hebrew: 'מִסְעָדָה', english: 'restaurant' },
+      { hebrew: 'טֶלֶפוֹן', english: 'telephone' }, { hebrew: 'מְדִינָה', english: 'country' },
+      { hebrew: 'עִירִיָּה', english: 'city hall' }
+    ],
+    [
+      { hebrew: 'אֲנָשִׁים', english: 'people' }, { hebrew: 'יְלָדִים', english: 'boys' },
+      { hebrew: 'יְלָדוֹת', english: 'girls' }, { hebrew: 'כַּדּוּרִים', english: 'balls' },
+      { hebrew: 'חֲתוּלִים', english: 'cats' }
+    ],
+    [
+      { hebrew: 'צִפּוֹרִים', english: 'birds' }, { hebrew: 'אַרְנָבִים', english: 'rabbits' },
+      { hebrew: 'גְּמַלִּים', english: 'camels' }, { hebrew: 'אִילָנוֹת', english: 'trees' },
+      { hebrew: 'עֲנָנִים', english: 'clouds' }
+    ],
+    [
+      { hebrew: 'גְּשָׁמִים', english: 'rains' }, { hebrew: 'כּוֹכָבִים', english: 'stars' },
+      { hebrew: 'יְרֵחִים', english: 'moons' }, { hebrew: 'רְחוֹבוֹת', english: 'streets' },
+      { hebrew: 'חֲנוּיוֹת', english: 'stores' }
+    ],
+    [
+      { hebrew: 'בִּנְיָנִים', english: 'buildings' }, { hebrew: 'מַעֲלִית', english: 'elevator' },
+      { hebrew: 'מַדְרֵגוֹת', english: 'stairs' }, { hebrew: 'תַּפּוּחִים', english: 'apples' },
+      { hebrew: 'תַּפּוּזִים', english: 'oranges' }
+    ],
+    [
+      { hebrew: 'בָּנָנוֹת', english: 'bananas' }, { hebrew: 'עֻגִּיָּה', english: 'cookie' },
+      { hebrew: 'אֲדֻמָּה', english: 'red' }, { hebrew: 'יְרֻקָּה', english: 'green' },
+      { hebrew: 'כְּחֻלָּה', english: 'blue' }
+    ],
+    [
+      { hebrew: 'צְהֻבָּה', english: 'yellow' }, { hebrew: 'לְבָנָה', english: 'white' },
+      { hebrew: 'גְּדוֹלָה', english: 'big' }, { hebrew: 'קְטַנָּה', english: 'small' },
+      { hebrew: 'חֲדָשָׁה', english: 'new' }
+    ],
+    [
+      { hebrew: 'יְשָׁנָה', english: 'old' }, { hebrew: 'מְנַהֵל', english: 'manager' },
+      { hebrew: 'מְדַבֵּר', english: 'speaks' }, { hebrew: 'כּוֹתֶבֶת', english: 'writes' },
+      { hebrew: 'לוֹמֶדֶת', english: 'learns' }
+    ]
+  ];
+
+  threeSyllableList.innerHTML = '';
+  wordLines.forEach((words, lineIndex) => {
+    const line = document.createElement('div');
+    line.className = 'word-line';
+    const number = document.createElement('span');
+    number.className = 'line-number';
+    number.textContent = `${lineIndex + 1}.`;
+    line.appendChild(number);
+
+    words.forEach((word) => {
+      const element = document.createElement('span');
+      element.className = 'hebrew-word';
+      element.lang = 'he';
+      element.dir = 'rtl';
+      element.textContent = word.hebrew;
+      element.setAttribute('aria-label', `${word.hebrew}, ${word.english}`);
+      element.title = word.english;
+      line.appendChild(element);
+    });
+    threeSyllableList.appendChild(line);
+  });
+
+  threeSyllableOption.setAttribute('aria-selected', 'true');
+  vowelsOption.setAttribute('aria-selected', 'false');
+  lettersOption.setAttribute('aria-selected', 'false');
+  letterVowelOption.setAttribute('aria-selected', 'false');
+  syllableOption.setAttribute('aria-selected', 'false');
+  twoSyllableOption.setAttribute('aria-selected', 'false');
+  welcomeView.hidden = true;
+  vowelsView.hidden = true;
+  lettersView.hidden = true;
+  letterVowelView.hidden = true;
+  syllableView.hidden = true;
+  twoSyllableView.hidden = true;
+  threeSyllableView.hidden = false;
   resetButton.hidden = true;
 }
 
@@ -539,11 +644,14 @@ lettersOption.addEventListener('click', openLetters);
 letterVowelOption.addEventListener('click', openLetterVowels);
 syllableOption.addEventListener('click', openSyllables);
 twoSyllableOption.addEventListener('click', openTwoSyllables);
+threeSyllableOption.addEventListener('click', openThreeSyllables);
 
 lessonList.addEventListener('keydown', (event) => {
   if (event.key === 'Enter' || event.key === ' ') {
     event.preventDefault();
-    if (twoSyllableOption.getAttribute('aria-selected') === 'true') {
+    if (threeSyllableOption.getAttribute('aria-selected') === 'true') {
+      openThreeSyllables();
+    } else if (twoSyllableOption.getAttribute('aria-selected') === 'true') {
       openTwoSyllables();
     } else if (syllableOption.getAttribute('aria-selected') === 'true') {
       openSyllables();
@@ -564,12 +672,16 @@ lessonList.addEventListener('keydown', (event) => {
       openSyllables();
     } else if (syllableOption.getAttribute('aria-selected') === 'true') {
       openTwoSyllables();
+    } else if (twoSyllableOption.getAttribute('aria-selected') === 'true') {
+      openThreeSyllables();
     } else {
-      openTwoSyllables();
+      openThreeSyllables();
     }
   } else if (event.key === 'ArrowUp') {
     event.preventDefault();
-    if (twoSyllableOption.getAttribute('aria-selected') === 'true') {
+    if (threeSyllableOption.getAttribute('aria-selected') === 'true') {
+      openTwoSyllables();
+    } else if (twoSyllableOption.getAttribute('aria-selected') === 'true') {
       openSyllables();
     } else if (syllableOption.getAttribute('aria-selected') === 'true') {
       openLetterVowels();
