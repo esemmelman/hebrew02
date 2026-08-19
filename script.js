@@ -136,7 +136,8 @@ function openLetters() {
     { glyph: 'ר', name: 'Resh' },
     { glyph: 'שׁ', name: 'Shin' },
     { glyph: 'שׂ', name: 'Sin' },
-    { glyph: 'ת', name: 'Tav' }
+    { glyph: 'ת', name: 'Tav' },
+    { glyph: 'תּ', name: 'Taf' }
   ];
 
   letterCloud.innerHTML = '';
@@ -169,7 +170,12 @@ function openLetterVowels() {
     ['חֻ', 'טַ', 'יָ', 'כֶּ', 'לֵ', 'מִ'],
     ['נֹ', 'סֻ', 'עַ', 'פֵּ', 'צִ', 'קָ'],
     ['רֶ', 'שָׁ', 'תֻּ', 'בֹּ', 'גֵּ', 'דִּ'],
-    ['הֲ', 'וְ', 'זֶ', 'חָ', 'טֹ', 'יִ']
+    ['הֲ', 'וְ', 'זֶ', 'חָ', 'טֹ', 'יִ'],
+    ['כָּ', 'לֶ', 'מֵ', 'נִ', 'סֹ', 'עֻ'],
+    ['פַּ', 'צָ', 'קֶ', 'רֵ', 'שִׁ', 'תֹּ'],
+    ['בֲּ', 'גְּ', 'דֶ', 'הָ', 'וֹ', 'זִ'],
+    ['חַ', 'טָ', 'יֶ', 'כֵּ', 'לֹ', 'מֻ'],
+    ['נַ', 'סָ', 'עֶ', 'פֵּ', 'צֹ', 'קִ']
   ];
 
   letterVowelList.innerHTML = '';
@@ -232,6 +238,31 @@ function openSyllables() {
       { hebrew: 'כּוֹס', english: 'cup' }, { hebrew: 'חֵץ', english: 'arrow' },
       { hebrew: 'קִיר', english: 'wall' }, { hebrew: 'שִׁיר', english: 'song' },
       { hebrew: 'עִיר', english: 'city' }
+    ],
+    [
+      { hebrew: 'יוֹם', english: 'day' }, { hebrew: 'קוֹל', english: 'voice' },
+      { hebrew: 'עַם', english: 'people' }, { hebrew: 'דָּם', english: 'blood' },
+      { hebrew: 'טַל', english: 'dew' }
+    ],
+    [
+      { hebrew: 'פֶּה', english: 'mouth' }, { hebrew: 'אַף', english: 'nose' },
+      { hebrew: 'רֹאשׁ', english: 'head' }, { hebrew: 'אֵשׁ', english: 'fire' },
+      { hebrew: 'תֵּה', english: 'tea' }
+    ],
+    [
+      { hebrew: 'חוֹף', english: 'beach' }, { hebrew: 'חוֹל', english: 'sand' },
+      { hebrew: 'גַּל', english: 'wave' }, { hebrew: 'סַל', english: 'basket' },
+      { hebrew: 'נֵר', english: 'candle' }
+    ],
+    [
+      { hebrew: 'שֵׁן', english: 'tooth' }, { hebrew: 'צֵל', english: 'shadow' },
+      { hebrew: 'קֵן', english: 'nest' }, { hebrew: 'זָר', english: 'stranger' },
+      { hebrew: 'צַד', english: 'side' }
+    ],
+    [
+      { hebrew: 'רַךְ', english: 'soft' }, { hebrew: 'קַל', english: 'lightweight' },
+      { hebrew: 'חַם', english: 'hot' }, { hebrew: 'טוֹב', english: 'good' },
+      { hebrew: 'רַע', english: 'bad' }
     ]
   ];
 
@@ -297,6 +328,31 @@ function openTwoSyllables() {
       { hebrew: 'דֶּלֶת', english: 'door' }, { hebrew: 'עֶרֶב', english: 'evening' },
       { hebrew: 'פֶּרַח', english: 'flower' }, { hebrew: 'סֵפֶר', english: 'book' },
       { hebrew: 'שֻׁלְחָן', english: 'table' }
+    ],
+    [
+      { hebrew: 'שֶׁמֶשׁ', english: 'sun' }, { hebrew: 'עָנָן', english: 'cloud' },
+      { hebrew: 'כּוֹכָב', english: 'star' }, { hebrew: 'מַיִם', english: 'water' },
+      { hebrew: 'שִׂמְלָה', english: 'dress' }
+    ],
+    [
+      { hebrew: 'חָתוּל', english: 'cat' }, { hebrew: 'צִפּוֹר', english: 'bird' },
+      { hebrew: 'אַרְנָב', english: 'rabbit' }, { hebrew: 'פָּרָה', english: 'cow' },
+      { hebrew: 'גָּמָל', english: 'camel' }
+    ],
+    [
+      { hebrew: 'אַבָּא', english: 'father' }, { hebrew: 'אִמָּא', english: 'mother' },
+      { hebrew: 'יַלְדָּה', english: 'girl' }, { hebrew: 'סַבָּא', english: 'grandfather' },
+      { hebrew: 'סַבְתָּא', english: 'grandmother' }
+    ],
+    [
+      { hebrew: 'כִּסֵּא', english: 'chair' }, { hebrew: 'חֲלוֹם', english: 'dream' },
+      { hebrew: 'שָׁעוֹן', english: 'clock' }, { hebrew: 'כַּדּוּר', english: 'ball' },
+      { hebrew: 'בַּלּוֹן', english: 'balloon' }
+    ],
+    [
+      { hebrew: 'חֲנוּת', english: 'store' }, { hebrew: 'רְחוֹב', english: 'street' },
+      { hebrew: 'מִדְבָּר', english: 'desert' }, { hebrew: 'נָהָר', english: 'river' },
+      { hebrew: 'הָרִים', english: 'mountains' }
     ]
   ];
 

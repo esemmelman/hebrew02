@@ -152,25 +152,24 @@ h2 {
 }
 
 .letters-view {
-  min-height: calc(100vh - 120px);
+  min-height: auto;
 }
 
 .letter-cloud {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
-  align-content: space-evenly;
-  gap: 18px;
-  min-height: calc(100vh - 120px);
-  padding: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  align-content: start;
+  gap: 10px 12px;
+  padding: 0 16px 16px;
 }
 
 .hebrew-letter {
   display: grid;
-  min-height: 110px;
+  min-height: 90px;
   place-items: center;
   color: var(--primary);
   font-family: "Times New Roman", "Noto Serif Hebrew", serif;
-  font-size: clamp(4.5rem, 8vw, 7.5rem);
+  font-size: clamp(3.8rem, 6.5vw, 6rem);
   font-weight: 700;
   line-height: 1;
 }
